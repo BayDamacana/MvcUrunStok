@@ -1,0 +1,30 @@
+﻿@using MvcUrunStok.Models.Entity
+@model List<Kategoriler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>KATEGORİ ID</th>
+            <th>KATEGORİ ADI</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ktgr in Model)
+        {
+            <tr>
+                <td>@ktgr.kategoriid</td>
+                <td>@ktgr.kategoriad</td>
+                <td><a href="/Kategori/sil/@ktgr.kategoriid" class="btn btn-danger">SİL</a></td>
+                <td><a href="/Kategori/KategoriGetir/@ktgr.kategoriid" class="btn btn-success">GÜNCELLE</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+ <a href="/Kategori/YeniKategori/" class="btn btn-primary">YENİ KATEGORİ EKLE</a>
+
